@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = DEBUG = os.environ.get("DEBUG", "False") == "True"
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "nexa-online-shop-server.onrender.com",
@@ -110,8 +110,6 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 CORS_ALLOW_CREDENTIALS = True
 CSRF_COOKIE_NAME = 'csrftoken'
-# SESSION_COOKIE_SAMESITE = 'Lax'
-# CSRF_COOKIE_SAMESITE = 'Lax'
 SESSION_COOKIE_SAMESITE = "None"
 SESSION_COOKIE_SECURE = True
 
