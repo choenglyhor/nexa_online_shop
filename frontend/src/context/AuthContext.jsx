@@ -44,6 +44,8 @@ export function AuthProvider({ children }) {
 
   const login = async (username, password) => {
     const res = await api.post('/auth/login/', { username, password })
+    console.log(res.headers)
+    console.log(res.data)
     setUser(res.data)
     return res.data
   }
