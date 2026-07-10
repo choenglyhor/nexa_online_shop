@@ -64,10 +64,6 @@ export function AuthProvider({ children }) {
     setUser(res.data)
   }
 
-  // ─── Profile ──────────────────────────────────────────────────────────────
-  // payload may contain: first_name, last_name, email, phone, address, city,
-  // country, bio, avatar (File object to upload | '' to clear | undefined to skip)
-
   const updateProfile = async (payload) => {
     const fd  = buildProfileFormData(payload)
     const res = await api.put('/auth/profile/', fd, {
