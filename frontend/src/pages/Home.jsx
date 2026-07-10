@@ -40,16 +40,18 @@ export default function HomeConnected() {
     const load = async () => {
       try {
         const [productRes, categoryRes] = await Promise.all([
-          api.get('/products/'),
-          api.get('/categories/'),
-        ])
-        setProducts(productRes.data)
-        setCategories(categoryRes.data)
-      } catch {
-        setProducts([])
-        setCategories([])
+          api.get("/products/"),
+          api.get("/categories/"),
+        ]);
+        setProducts(productRes.data);
+        setCategories(categoryRes.data);
+      } catch (err) {
+        console.error(err);
+        console.error(err.response?.data);
+        setProducts([]);
+        setCategories([]);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     }
     load()
