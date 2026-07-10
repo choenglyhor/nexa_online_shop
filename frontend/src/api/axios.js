@@ -4,7 +4,7 @@ import axios from 'axios'
 // ─── Single API instance pointing to Django ───────────────────────────────────
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  withCredentials: true,   // send session cookie + CSRF cookie on every request
+  withCredentials: false,   // send session cookie + CSRF cookie on every request
 })
 function getCookie(name) {
   const match = document.cookie.match(new RegExp('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)'))
