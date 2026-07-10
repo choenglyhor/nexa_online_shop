@@ -228,57 +228,6 @@ export default function About() {
           ))}
         </div>
       </section>
-
-      {/* Rooted in Quality */}
-      {/* <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 dark:text-white">
-          Rooted in Qunality
-        </h2>
-        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 text-center max-w-xl mx-auto">
-          we believe that everyone deserves access to healthy food. Our values guide every delivery we mark.
-        </p>
-
-        <div className="mt-10 grid sm:grid-cols-3 gap-6">
-          {values.map((v) => (
-            <div
-              key={v.title}
-              className="rounded-2xl bg-gray-100 dark:bg-gray-900 p-6 hover:-translate-y-1 hover:shadow-md transition"
-            >
-              <div className="w-10 h-10 rounded-lg bg-violet-200 dark:bg-violet-900/40 flex items-center justify-center text-lg mb-4">
-                {v.icon}
-              </div>
-              <h3 className="font-bold text-gray-900 dark:text-gray-100">{v.title}</h3>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{v.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
-      {/* Team */}
-      {/* <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center">The Team Behind Shoply</h2>
-        <p className="mt-2 text-gray-600 dark:text-gray-400 text-center max-w-xl mx-auto">
-          A small team working to make your shopping experience a little better, every day.
-        </p>
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {team.map((person) => (
-            <div
-              key={person.name}
-              className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 flex items-center gap-4 hover:shadow-md transition"
-            >
-              <img
-                src={person.img}
-                alt={person.name}
-                className="w-16 h-16 rounded-full object-cover shrink-0"
-              />
-              <div>
-                <p className="font-semibold text-gray-900 dark:text-gray-100">{person.name}</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{person.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section> */}
     </div>
   )
 }

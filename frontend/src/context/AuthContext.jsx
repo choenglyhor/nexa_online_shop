@@ -2,12 +2,6 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import api from '../api/axios'
 
 const AuthContext = createContext()
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
-// Build a FormData object for profile updates so avatar files upload correctly.
-// Text-only updates (bio, etc.) also work because Django's view accepts both
-// multipart and JSON — but FormData keeps it consistent.
 function buildProfileFormData(payload) {
   const fd = new FormData()
   const textFields = ['first_name', 'last_name', 'email', 'phone', 'address', 'city', 'country', 'bio']

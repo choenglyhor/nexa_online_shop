@@ -1,7 +1,3 @@
-// ─── Shared product storage helpers ────────────────────────────────────────────
-// Used by both Dashboard.jsx (writes) and Shop.jsx (reads) so admin-added
-// products, edits to FakeStore products, and FakeStore deletions all persist
-// in localStorage and stay in sync across the app without a backend.
 
 const ADMIN_PRODUCTS_KEY = 'nexashop_products'
 const OVERRIDES_KEY      = 'nexashop_product_overrides'   // edits to FakeStore products, keyed by fakestore id
