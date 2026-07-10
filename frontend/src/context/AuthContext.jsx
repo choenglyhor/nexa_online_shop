@@ -2,6 +2,11 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import api from '../api/axios'
 
 const AuthContext = createContext()
+
+async function refreshCsrfToken() {
+  await api.get('/auth/csrf/')
+}
+
 function buildProfileFormData(payload) {
   const fd = new FormData()
   const textFields = ['first_name', 'last_name', 'email', 'phone', 'address', 'city', 'country', 'bio']
@@ -28,7 +33,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const init = async () => {
       try {
-        await api.get('/auth/csrf/')         // sets csrftoken cookie
+        await refreshCsrfToken()             // sets and stores the CSRF token
         const res = await api.get('/auth/me/')
         setUser(res.data)
       } catch {
@@ -44,6 +49,7 @@ export function AuthProvider({ children }) {
 
   const login = async (username, password) => {
     const res = await api.post('/auth/login/', { username, password })
+    await refreshCsrfToken()                 // login rotates Django's CSRF token
     console.log(res.headers)
     console.log(res.data)
     setUser(res.data)
@@ -52,12 +58,16 @@ export function AuthProvider({ children }) {
 
   const register = async (payload) => {
     const res = await api.post('/auth/register/', payload)
+    await refreshCsrfToken()                 // register logs in and rotates CSRF
+    console.log(res.headers)
+    console.log(res.data)
     setUser(res.data)
     return res.data
   }
 
   const logout = async () => {
     await api.post('/auth/logout/')
+
     setUser(null)
   }
 
@@ -82,6 +92,7 @@ export function AuthProvider({ children }) {
       current_password: currentPassword,
       new_password:     newPassword,
     })
+    await refreshCsrfToken()                 // password change re-authenticates
   }
 
   // ─── Admin: user management ───────────────────────────────────────────────
