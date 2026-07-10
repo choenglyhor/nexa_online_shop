@@ -8,10 +8,7 @@ SECRET_KEY = 'django-insecure-change-this-in-production'
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    "nexa-online-shop-server.onrender.com",
-    "localhost",
-    "127.0.0.1",
-] #hosts for render deployment
+    "nexa-online-shop-server.onrender.com",] #hosts for render deployment
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # for static files in production
