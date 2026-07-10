@@ -99,12 +99,12 @@ REST_FRAMEWORK = {
 # --- CORS / CSRF for the React dev server ---
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://your-vercel-app.vercel.app",
+    "https://nexa-online-shop.vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
-    "https://your-vercel-app.vercel.app",
+    "https://nexa-online-shop.vercel.app",
 ]
 CSRF_COOKIE_NAME = 'csrftoken'
 SESSION_COOKIE_SAMESITE = 'Lax'

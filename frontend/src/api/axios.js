@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // ─── Single API instance pointing to Django ───────────────────────────────────
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,   // send session cookie + CSRF cookie on every request
 })
 function getCookie(name) {
@@ -21,6 +21,4 @@ api.interceptors.request.use((config) => {
 })
 
 export default api
-
-// Named export kept for backward compatibility with any file that imports authApi
 export const authApi = api
