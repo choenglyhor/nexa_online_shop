@@ -3,9 +3,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-change-this-in-production'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = os.environ.get("DEBUG", "False") == "True"
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "nexa-online-shop-server.onrender.com",] #hosts for render deployment
@@ -95,22 +95,13 @@ REST_FRAMEWORK = {
 
 # --- CORS / CSRF for the React dev server ---
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'http://localhost:5174',
-    'http://127.0.0.1:5174',
-    'http://localhost:5175',
-    'http://127.0.0.1:5175',
+    "http://localhost:5173",
+    "https://your-vercel-app.vercel.app",
 ]
-CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'http://localhost:5174',
-    'http://127.0.0.1:5174',
-    'http://localhost:5175',
-    'http://127.0.0.1:5175',
+    "http://localhost:5173",
+    "https://your-vercel-app.vercel.app",
 ]
 CSRF_COOKIE_NAME = 'csrftoken'
 SESSION_COOKIE_SAMESITE = 'Lax'
