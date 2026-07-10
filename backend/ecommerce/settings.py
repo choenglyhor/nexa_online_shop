@@ -5,9 +5,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-change-this-in-production'
 
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['*.onrender.com'] #hosts for render deployment
+ALLOWED_HOSTS = [
+    "nexa-online-shop-server.onrender.com",
+    "localhost",
+    "127.0.0.1",
+] #hosts for render deployment
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # for static files in production
