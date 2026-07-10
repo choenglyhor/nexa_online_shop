@@ -41,6 +41,7 @@ def login_view(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
+        request.session.save()
         return Response(UserSerializer(user, context={'request': request}).data)
     return Response({'detail': 'No active account found with the given credentials.'}, status=status.HTTP_400_BAD_REQUEST)
 
