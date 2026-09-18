@@ -312,16 +312,16 @@ export default function ProfileConnected() {
   const tabs = isAdmin ? ['profile', 'orders', 'users', 'security'] : ['profile', 'orders', 'security']
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:py-10 sm:px-6 lg:px-8">
       <Toast message={toast} />
 
-      <div className="mb-8 flex items-center gap-4">
-        <Avatar src={user.profile?.avatar} name={user.first_name || user.username} size="h-20 w-20" />
+      <div className="mb-6 sm:mb-8 flex items-center gap-3.5 sm:gap-4">
+        <Avatar src={user.profile?.avatar} name={user.first_name || user.username} size="h-14 w-14 sm:h-20 sm:w-20" />
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
             {user.first_name || user.last_name ? `${user.first_name} ${user.last_name}`.trim() : user.username}
           </h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">@{user.username}</p>
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">@{user.username}</p>
           {isAdmin && <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-400">Admin</p>}
         </div>
       </div>

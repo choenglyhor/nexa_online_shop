@@ -50,8 +50,6 @@ export function AuthProvider({ children }) {
   const login = async (username, password) => {
     const res = await api.post('/auth/login/', { username, password })
     await refreshCsrfToken()                 // login rotates Django's CSRF token
-    console.log(res.headers)
-    console.log(res.data)
     setUser(res.data)
     return res.data
   }
@@ -59,15 +57,12 @@ export function AuthProvider({ children }) {
   const register = async (payload) => {
     const res = await api.post('/auth/register/', payload)
     await refreshCsrfToken()                 // register logs in and rotates CSRF
-    console.log(res.headers)
-    console.log(res.data)
     setUser(res.data)
     return res.data
   }
 
   const logout = async () => {
     await api.post('/auth/logout/')
-
     setUser(null)
   }
 
@@ -115,7 +110,7 @@ export function AuthProvider({ children }) {
 
   const getCategories = async () => {
     const res = await api.get('/categories/')
-    return res.data   // [{ id, name, slug }]
+    return res.data   // [{ id, name, slug, image, products_count }]
   }
 
   const addCategory = async (payload) => {
@@ -124,7 +119,8 @@ export function AuthProvider({ children }) {
   }
 
   const updateCategory = async (id, payload) => {
-    const res = await api.put(`/categories/${id}/`, payload)
+    // Use PATCH to allow partial updates (e.g. image, name, or description)
+    const res = await api.patch(`/categories/${id}/`, payload)
     return res.data
   }
 
@@ -135,13 +131,11 @@ export function AuthProvider({ children }) {
   // ─── Orders ───────────────────────────────────────────────────────────────
 
   const getMyOrders = async () => {
-    // Regular users get only their own orders from this endpoint
     const res = await api.get('/orders/')
     return res.data
   }
 
   const getAllOrders = async () => {
-    // Admin gets all orders from the same endpoint (Django scopes by role)
     const res = await api.get('/orders/')
     return res.data
   }

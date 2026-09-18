@@ -19,20 +19,20 @@ export default function Wishlist() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="flex items-center justify-between mb-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-6 sm:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Your Wishlist</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Your Wishlist</h1>
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-0.5 sm:mt-1">
             {wishlist.length} saved item{wishlist.length !== 1 ? 's' : ''}
           </p>
         </div>
-        <Link to="/shop" className="text-sm font-medium text-brand-600 dark:text-brand-400 hover:underline">
+        <Link to="/shop" className="self-start sm:self-auto text-xs sm:text-sm font-medium text-brand-600 dark:text-brand-400 hover:underline">
           Continue shopping →
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">
         {wishlist.map((w) => (
           <ProductCard key={w.id} product={w.product} />
         ))}

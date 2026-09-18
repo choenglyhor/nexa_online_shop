@@ -61,25 +61,27 @@ export default function ShopConnected() {
   const hasFilters = search || category || sort
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mb-6 flex items-center justify-between gap-4">
+    <div className="mx-auto max-w-7xl px-4 py-6 sm:py-10 sm:px-6 lg:px-8">
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Shop</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Enjoy your shopping Time!
+          </h1>
           {!loading && (
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mt-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
               {visibleProducts.length} product{visibleProducts.length !== 1 ? 's' : ''}
               {category && <span> in <span className="font-medium capitalize">{categories.find((c) => c.slug === category)?.name || category}</span></span>}
             </p>
           )}
         </div>
         {hasFilters && (
-          <button onClick={clearFilters} className="text-sm font-medium text-brand-600 hover:underline dark:text-brand-400">
+          <button onClick={clearFilters} className="self-start sm:self-auto text-xs sm:text-sm font-medium text-brand-600 hover:underline dark:text-brand-400">
             Clear filters
           </button>
         )}
       </div>
 
-      <div className="mb-8 flex flex-col gap-3 sm:flex-row">
+      <div className="mb-6 sm:mb-8 flex flex-col gap-2.5 sm:flex-row sm:gap-3">
         <input
           type="text"
           value={search}
@@ -106,11 +108,11 @@ export default function ShopConnected() {
       )}
 
       {loading ? (
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3.5 sm:gap-6 sm:grid-cols-3 lg:grid-cols-4">
           {Array.from({ length: 8 }).map((_, index) => (
             <div key={index} className="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
               <div className="aspect-square animate-pulse bg-gray-200 dark:bg-gray-800" />
-              <div className="space-y-2 p-4">
+              <div className="space-y-2 p-3 sm:p-4">
                 <div className="h-3 w-1/2 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
                 <div className="h-4 w-3/4 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
                 <div className="h-4 w-1/3 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
@@ -119,16 +121,16 @@ export default function ShopConnected() {
           ))}
         </div>
       ) : visibleProducts.length === 0 ? (
-        <div className="rounded-xl border border-gray-200 bg-white py-20 text-center dark:border-gray-800 dark:bg-gray-900">
-          <p className="text-lg text-gray-500 dark:text-gray-400">No products found.</p>
+        <div className="rounded-xl border border-gray-200 bg-white py-16 sm:py-20 text-center dark:border-gray-800 dark:bg-gray-900">
+          <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400">No products found.</p>
           {hasFilters && (
-            <button onClick={clearFilters} className="mt-4 text-sm font-medium text-brand-600 hover:underline dark:text-brand-400">
+            <button onClick={clearFilters} className="mt-3 sm:mt-4 text-xs sm:text-sm font-medium text-brand-600 hover:underline dark:text-brand-400">
               Clear filters
             </button>
           )}
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3.5 sm:gap-6 sm:grid-cols-3 lg:grid-cols-4">
           {visibleProducts.map((product) => <ProductCard key={product.id} product={product} />)}
         </div>
       )}

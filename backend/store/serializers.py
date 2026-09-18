@@ -19,10 +19,26 @@ def unique_slug(model, value, instance=None):
 
 class CategorySerializer(serializers.ModelSerializer):
     slug = serializers.SlugField(read_only=True)
+    image = serializers.ImageField(required=False, allow_null=True)
+    products_count = serializers.IntegerField(source='products.count', read_only=True)
 
     class Meta:
         model = Category
-        fields = ['id', 'name', 'slug', 'description']
+        fields = ['id', 'name', 'slug', 'description', 'image', 'products_count']
+
+    def to_internal_value(self, data):
+        data = data.copy()
+        if data.get('image') == '':
+            data['image'] = None
+        return super().to_internal_value(data)
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        if instance.image:
+            request = self.context.get('request')
+            url = instance.image.url
+            data['image'] = request.build_absolute_uri(url) if request else url
+        return data
 
     def create(self, validated_data):
         validated_data['slug'] = unique_slug(Category, validated_data['name'])

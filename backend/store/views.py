@@ -30,6 +30,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = [IsSellerOrAdmin]
+    parser_classes = [JSONParser, MultiPartParser, FormParser]
 
 
 class ProductViewSet(viewsets.ModelViewSet):

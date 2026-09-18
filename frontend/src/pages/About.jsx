@@ -77,13 +77,13 @@ export default function About() {
     <div className="bg-gray-50 dark:bg-gray-950">
       {/* Hero */}
       <section className="bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20 grid md:grid-cols-2 gap-8 sm:gap-10 items-center">
           <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white">
               Our <span className="text-violet-500">Website</span> : Bring a lot of many
               Product and Bring have a lot of food to eat.
             </h1>
-            <p className="mt-6 text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-md">
+            <p className="mt-4 sm:mt-6 text-gray-600 dark:text-gray-400 text-xs sm:text-sm leading-relaxed max-w-md">
               NexaShop is a modern e-commerce platform built to make online shopping easy, secure, and enjoyable.<br />
               We offer a wide selection of products including fashion, electronics, and everyday essentials, carefully curated to meet the needs of modern customers.<br />
               Our mission is to deliver high-quality products at competitive prices while providing a smooth and reliable shopping experience.<br />
@@ -91,16 +91,16 @@ export default function About() {
               At NexaShop, we believe that technology and innovation can simplify everyday life.<br />
               That's why we continuously improve our platform to ensure convenience, transparency, and customer satisfaction at every step.
             </p>
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4">
               <Link
                 to="/shop"
-                className="px-6 py-3 rounded-full bg-violet-500 hover:bg-violet-600 text-white font-semibold transition"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-violet-500 hover:bg-violet-600 text-white text-xs sm:text-sm font-semibold transition"
               >
                 Explore our Values
               </Link>
               <Link
                 to="/contact"
-                className="px-6 py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition"
               >
                 Contact Us
               </Link>
@@ -112,46 +112,46 @@ export default function About() {
             <img
               src="https://images.unsplash.com/photo-1601598851547-4302969d0614?w=900&q=80"
               alt="Shopping cart"
-              className="w-full h-72 sm:h-80 object-cover"
+              className="w-full h-64 sm:h-80 object-cover"
             />
           </div>
         </div>
       </section>
 
       {/* Payment & Contact */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 items-center">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-white leading-tight">
               Credit Card & Payment
             </h2>
-            <p className="mt-3 text-lg text-gray-500 dark:text-gray-400">10+ option</p>
+            <p className="mt-2 sm:mt-3 text-base sm:text-lg text-gray-500 dark:text-gray-400">10+ option</p>
 
-            <p className="mt-6 text-xl font-semibold text-gray-900 dark:text-gray-100">
+            <p className="mt-4 sm:mt-6 text-lg sm:text-xl font-semibold text-gray-900 dark:text-gray-100">
               We are stand here to make easier to you
             </p>
-            <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
               Please click "CONTECT ME" button<br />
               if you have problem with payment
             </p>
 
-            <div className="mt-6 flex items-center gap-4">
+            <div className="mt-4 sm:mt-6 flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4">
               <Link
                 to="/contact"
-                className="px-6 py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition"
               >
                 Contact Us
               </Link>
               <Link
                 to="/checkout"
-                className="px-6 py-3 rounded-full bg-violet-400 hover:bg-violet-500 text-white font-semibold flex items-center gap-2 transition"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-violet-400 hover:bg-violet-500 text-white text-xs sm:text-sm font-semibold flex items-center gap-2 transition"
               >
                 PAY NOW <span className="text-base">💲</span>
               </Link>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-sm md:ml-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-sm md:ml-auto">
             {bankLogos.map((bank) => (
               <div
                 key={bank.label}
@@ -169,8 +169,8 @@ export default function About() {
       </section>
 
       {/* Our Team (3-card row) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 dark:text-white mb-8 sm:mb-10">
           Our Team
         </h2>
 
@@ -178,9 +178,9 @@ export default function About() {
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="rounded-2xl bg-white dark:bg-gray-900 shadow-md p-10 flex flex-col items-center text-center"
+              className="rounded-2xl bg-white dark:bg-gray-900 shadow-md p-6 sm:p-10 flex flex-col items-center text-center"
             >
-              <div className="w-44 h-44 rounded-full overflow-hidden border-4 border-violet-500">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden border-4 border-violet-500">
                 <img
                   src={member.img}
                   alt={member.name}

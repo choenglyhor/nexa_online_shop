@@ -3,15 +3,15 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
-
+SECRET_KEY = os.environ.get("SECRET_KEY") or "django-insecure-m+*7e+v!j#_5s!5y1v%49q4*t6&0h_21&@y$(q68o3-g-w#5q!"
 DEBUG = True
 
 ALLOWED_HOSTS = [
     "nexa-online-shop-server.onrender.com",
-     "localhost",
+    "localhost",
     "127.0.0.1",
-    ] #hosts for render deployment
+    "testserver",
+] #hosts for render deployment
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # for static files in production

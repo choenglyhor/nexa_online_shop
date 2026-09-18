@@ -70,42 +70,42 @@ export default function ProductCard({ product }) {
       </Link>
 
       {/* Info */}
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         {categoryName && (
-          <p className="text-xs uppercase tracking-wide text-brand-600 dark:text-brand-400 font-semibold truncate">
+          <p className="text-[11px] sm:text-xs uppercase tracking-wide text-brand-600 dark:text-brand-400 font-semibold truncate">
             {categoryName}
           </p>
         )}
 
-        <h3 className="mt-1 font-semibold text-gray-900 dark:text-gray-100 truncate text-sm" title={name}>
+        <h3 className="mt-0.5 sm:mt-1 font-semibold text-gray-900 dark:text-gray-100 truncate text-xs sm:text-sm" title={name}>
           {name}
         </h3>
 
         {product.rating && (
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-[11px] sm:text-xs text-gray-400 mt-0.5 sm:mt-1">
             ⭐ {product.rating.rate}
             <span className="ml-1 text-gray-300 dark:text-gray-600">({product.rating.count})</span>
           </p>
         )}
 
-        <div className="mt-2 flex items-center gap-2">
+        <div className="mt-2 flex flex-wrap items-baseline gap-1.5 sm:gap-2">
           {discountPrice ? (
             <>
-              <span className="font-bold text-gray-900 dark:text-white">${Number(discountPrice).toFixed(2)}</span>
-              <span className="text-sm text-gray-400 line-through">${Number(price).toFixed(2)}</span>
-              <span className="text-xs text-green-600 dark:text-green-400 font-medium ml-auto">
+              <span className="font-bold text-sm sm:text-base text-gray-900 dark:text-white">${Number(discountPrice).toFixed(2)}</span>
+              <span className="text-xs sm:text-sm text-gray-400 line-through">${Number(price).toFixed(2)}</span>
+              <span className="text-[10px] sm:text-xs text-green-600 dark:text-green-400 font-medium ml-auto">
                 -{Math.round((1 - discountPrice / price) * 100)}%
               </span>
             </>
           ) : (
-            <span className="font-bold text-gray-900 dark:text-white">${Number(price).toFixed(2)}</span>
+            <span className="font-bold text-sm sm:text-base text-gray-900 dark:text-white">${Number(price).toFixed(2)}</span>
           )}
         </div>
 
         <button
           onClick={handleAdd}
           disabled={product.in_stock === false}
-          className="mt-3 w-full py-2 rounded-lg bg-brand-600 hover:bg-brand-700 active:bg-brand-800 disabled:bg-gray-200 disabled:dark:bg-gray-700 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
+          className="mt-2.5 sm:mt-3 w-full py-1.5 sm:py-2 rounded-lg bg-brand-600 hover:bg-brand-700 active:bg-brand-800 disabled:bg-gray-200 disabled:dark:bg-gray-700 disabled:cursor-not-allowed text-white text-xs sm:text-sm font-medium transition-colors"
         >
           {product.in_stock === false ? 'Out of Stock' : 'Add to Cart'}
         </button>
